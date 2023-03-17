@@ -63,7 +63,6 @@ return require('packer').startup(function(use)
             "MunifTanjim/nui.nvim",
         }
     }
-    -- Lua
     use {
         "folke/which-key.nvim",
         config = function()
@@ -75,5 +74,9 @@ return require('packer').startup(function(use)
                 -- refer to the configuration section below
             }
         end
+    }
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
     }
 end)
