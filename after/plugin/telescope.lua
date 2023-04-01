@@ -5,7 +5,7 @@ local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
 local bind = vim.keymap.set
 table.insert(vimgrep_arguments, "--hidden")
 table.insert(vimgrep_arguments, "--glob")
-table.insert(vimgrep_arguments, "**/Games/**")
+table.insert(vimgrep_arguments, "!**/Games/**")
 
 telescope.setup({
     defaults = {
@@ -25,3 +25,5 @@ bind('n', '<leader>/', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 bind('n', '<M-x>', builtin.keymaps, {})
+
+telescope.load_extension("yank_history")
