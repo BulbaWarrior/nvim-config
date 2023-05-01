@@ -27,9 +27,11 @@ lsp.on_attach(function(client, bufnr)
     bind('n', 'go', vim.lsp.buf.type_definition)
     bind('n', 'gr', vim.lsp.buf.references)
     bind('n', 'gca', vim.lsp.buf.code_action)
+    bind('n', 'gcr', vim.lsp.buf.rename)
     bind('n', '[d', vim.diagnostic.goto_prev)
     bind('n', ']d', vim.diagnostic.goto_next)
 end)
 
 lsp.setup()
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]] -- format on save
