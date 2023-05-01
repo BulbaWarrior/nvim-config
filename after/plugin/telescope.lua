@@ -2,6 +2,7 @@ local telescope = require("telescope")
 local telescopeConfig = require("telescope.config")
 
 local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+local bind = vim.keymap.set
 table.insert(vimgrep_arguments, "--hidden")
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "**/Games/**")
@@ -19,7 +20,8 @@ telescope.setup({
 
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader><leader>', builtin.find_files, {})
-vim.keymap.set('n', '<leader>/', function()
+bind('n', '<leader><leader>', builtin.find_files, {})
+bind('n', '<leader>/', function()
     builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
+bind('n', '<M-x>', builtin.keymaps, {})
