@@ -25,3 +25,5 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+
+vim.g.neovide_input_macos_alt_is_meta = true

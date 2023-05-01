@@ -20,19 +20,3 @@ setMoveToWindow('h')
 setMoveToWindow('j')
 setMoveToWindow('k')
 setMoveToWindow('l')
-
--- for MacOs
-vim.keymap.set("n", "ß", vim.cmd.sp) -- <M-s>
-vim.keymap.set("n", "√", vim.cmd.vs) -- <M-v>
-vim.keymap.set("n", "œ", vim.cmd.q) -- <M-q>
-
-local function setMoveToWindowMac(symbol, direction)
-    vim.keymap.set("n", string.format("%s", symbol), function()
-        vim.cmd.wincmd(direction)
-    end)
-end
-
-setMoveToWindowMac('˙', 'h')
-setMoveToWindowMac('∆', 'j')
-setMoveToWindowMac('˚', 'k')
-setMoveToWindowMac('¬', 'l')
