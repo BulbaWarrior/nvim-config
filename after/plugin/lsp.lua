@@ -4,6 +4,7 @@ lsp.preset({
     name = 'recommended',
     set_lsp_keymaps = true,
     suggest_lsp_servers = true,
+    procMacro = { enable = true }
 })
 
 local cmp = require('cmp')
@@ -18,6 +19,12 @@ lsp.setup_nvim_cmp({
     mapping = cmp_mappings
 })
 
+-- cmp.setup.cmdline(':', {
+--     mapping = {
+--         ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(cmp_select)),
+--         ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(cmp_select))
+--     }
+-- })
 lsp.on_attach(function(client, bufnr)
     local bind = vim.keymap.set
     bind('n', 'gl', vim.diagnostic.open_float)
