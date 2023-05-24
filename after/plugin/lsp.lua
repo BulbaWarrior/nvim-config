@@ -7,6 +7,12 @@ lsp.preset({
     procMacro = { enable = true }
 })
 
+local lspconfig = require('lspconfig')
+lspconfig.terraformls.setup({
+    filetypes = { 'terraform', 'tf' },
+})
+
+
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
@@ -19,12 +25,6 @@ lsp.setup_nvim_cmp({
     mapping = cmp_mappings
 })
 
--- cmp.setup.cmdline(':', {
---     mapping = {
---         ['<C-k>'] = cmp.mapping(cmp.mapping.select_prev_item(cmp_select)),
---         ['<C-j>'] = cmp.mapping(cmp.mapping.select_next_item(cmp_select))
---     }
--- })
 lsp.on_attach(function(client, bufnr)
     local bind = vim.keymap.set
     bind('n', 'gl', vim.diagnostic.open_float)
