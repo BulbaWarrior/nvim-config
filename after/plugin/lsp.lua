@@ -7,10 +7,14 @@ lsp.preset({
     procMacro = { enable = true }
 })
 
-local lspconfig = require('lspconfig')
-lspconfig.terraformls.setup({
-    filetypes = { 'terraform', 'tf' },
+lsp.nvim_workspace({
+    library = vim.api.nvim_get_runtime_file('', true)
 })
+
+-- local lspconfig = require('lspconfig')
+-- lspconfig.terraformls.setup({
+--     filetypes = { 'terraform', 'tf' },
+-- })
 
 
 local cmp = require('cmp')

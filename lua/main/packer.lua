@@ -18,7 +18,13 @@ return require('packer').startup(function(use)
         as = 'rose-pine',
         config = function()
             require("rose-pine").setup()
-            vim.cmd('colorscheme rose-pine')
+            -- vim.cmd('colorscheme rose-pine')
+        end
+    }
+    use {
+        'folke/tokyonight.nvim',
+        config = function()
+            require('tokyonight').setup()
         end
     }
 
@@ -88,5 +94,9 @@ return require('packer').startup(function(use)
         config = function()
             require("nvterm").setup()
         end
+    }
+    use { 'nvim-orgmode/orgmode', config = function()
+        require('orgmode').setup {}
+    end
     }
 end)

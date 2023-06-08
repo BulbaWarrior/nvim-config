@@ -1,12 +1,17 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+local function fs_view(path)
+    path = path or '.'
+    return function()
+        vim.cmd.Neotree('filesystem', 'current', string.format('dir=%s', path))
+    end
+end
+
+vim.keymap.set("n", "<leader>pv", fs_view())
 
 vim.cmd [[cnoremap <C-j> <C-n>]]
 vim.cmd [[cnoremap <C-k> <C-p>]]
 
-vim.keymap.set("n", "<leader>fp", function()
-    vim.cmd.Ex "~/.config/nvim/"
-end)
+vim.keymap.set("n", "<leader>fp", fs_view("~/.config/nvim/"))
 
 vim.keymap.set({ "n", "t" }, "<M-s>", vim.cmd.sp)
 vim.keymap.set({ "n", "t" }, "<M-v>", vim.cmd.vs)
@@ -48,3 +53,7 @@ local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<leader><leader>', telescope.find_files, {})
 vim.keymap.set('n', '<leader>/', telescope.live_grep)
 vim.keymap.set('n', '<M-x>', telescope.keymaps, {})
+
+--Lsp
+vim.keymap.set('n', '<leader>lc', '<CMD>e ~/.config/nvim/after/plugin/lsp.lua<CR>')
+vim.keymap.set('n', '<leader>li', '<CMD>LspInfo<CR>')
