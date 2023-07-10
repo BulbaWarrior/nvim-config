@@ -26,4 +26,9 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
+vim.cmd [[ autocmd BufNewFile,BufRead *.wgsl setfiletype wgsl ]]
+
+vim.o.conceallevel = 1
+
 vim.g.neovide_input_macos_alt_is_meta = true
+vim.g.neovide_scale_factor = 0.85
