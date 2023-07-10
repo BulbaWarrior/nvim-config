@@ -27,10 +27,11 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings,
-    sources = {
-        { name = 'orgmode' }
-    }
+    -- sources = {
+    --     { name = 'orgmode' }
+    -- }
 })
+
 
 lsp.on_attach(function(client, bufnr)
     local bind = vim.keymap.set
