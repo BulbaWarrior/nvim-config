@@ -32,8 +32,7 @@ lsp.setup_nvim_cmp({
     -- }
 })
 
-
-lsp.on_attach(function(client, bufnr)
+local on_attach = function(client, bufnr)
     local bind = vim.keymap.set
     bind('n', 'gl', vim.diagnostic.open_float)
     bind('n', 'gd', vim.lsp.buf.definition)
@@ -45,8 +44,18 @@ lsp.on_attach(function(client, bufnr)
     bind('n', 'gcr', vim.lsp.buf.rename)
     bind('n', '[d', vim.diagnostic.goto_prev)
     bind('n', ']d', vim.diagnostic.goto_next)
-end)
+end
+
+lsp.on_attach(on_attach)
 
 lsp.setup()
 
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]] -- format on save
+
+-- manual lean setup
+require('lean').setup {
+    abbreviations = { builtin = true },
+    lsp = { on_attach = on_attach },
+    lsp3 = { on_attach = on_attach },
+    mappings = true,
+}
