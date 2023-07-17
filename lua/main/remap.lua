@@ -57,13 +57,14 @@ vim.keymap.set('n', '<M-x>', telescope.keymaps, {})
 --Lsp
 vim.keymap.set('n', '<leader>lc', '<CMD>e ~/.config/nvim/after/plugin/lsp.lua<CR>')
 vim.keymap.set('n', '<leader>li', '<CMD>LspInfo<CR>')
+vim.keymap.set('n', '<leader>ls', '<CMD>LspStop<CR>')
+vim.keymap.set('n', '<leader>lr', '<CMD>LspRestart<CR>')
 
 -- Tabs and worksapces
 vim.keymap.set('n', '<Tab>n', '<CMD>tabnew<CR>')
 vim.keymap.set('n', '<Tab>]', '<CMD>tabnext<CR>')
 vim.keymap.set('n', '<Tab>[', '<CMD>tabprevious<CR>')
 vim.keymap.set('n', '<Tab>x', '<CMD>tabclose<CR>')
-
 local tabline_state = 1
 vim.keymap.set('n', '<Tab><Tab>', function()
     vim.opt.showtabline = tabline_state == 1 and 0 or 1

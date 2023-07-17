@@ -12,8 +12,12 @@ lsp.nvim_workspace({
 })
 
 -- local lspconfig = require('lspconfig')
--- lspconfig.terraformls.setup({
---     filetypes = { 'terraform', 'tf' },
+-- lspconfig.yamlls.setup({
+--     settings = {
+--         format = {
+--             enable = false
+--         }
+--     },
 -- })
 
 

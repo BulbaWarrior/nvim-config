@@ -106,4 +106,12 @@ return require('packer').startup(function(use)
             "neovim/nvim-lspconfig",
         }
     }
+
+    local enabled, load = pcall(function()
+        return require('main.yadeps')
+    end)
+
+    if enabled then
+        load(use)
+    end
 end)
