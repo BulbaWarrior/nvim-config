@@ -61,12 +61,12 @@ vim.keymap.set('n', '<leader>ls', '<CMD>LspStop<CR>')
 vim.keymap.set('n', '<leader>lr', '<CMD>LspRestart<CR>')
 
 -- Tabs and worksapces
-vim.keymap.set('n', '<Tab>n', '<CMD>tabnew<CR>')
-vim.keymap.set('n', '<Tab>]', '<CMD>tabnext<CR>')
-vim.keymap.set('n', '<Tab>[', '<CMD>tabprevious<CR>')
-vim.keymap.set('n', '<Tab>x', '<CMD>tabclose<CR>')
+vim.keymap.set('n', '<Esc>n', '<CMD>tabnew<CR>')
+vim.keymap.set('n', '<Esc>]', '<CMD>tabnext<CR>')
+vim.keymap.set('n', '<Esc>[', '<CMD>tabprevious<CR>')
+vim.keymap.set('n', '<Esc>x', '<CMD>tabclose<CR>')
 local tabline_state = 1
-vim.keymap.set('n', '<Tab><Tab>', function()
+vim.keymap.set({ 'n', 't' }, '<Esc><Esc>', function()
     vim.opt.showtabline = tabline_state == 1 and 0 or 1
     tabline_state = tabline_state == 1 and 0 or 1
     print(tabline_state)
