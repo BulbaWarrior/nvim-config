@@ -107,6 +107,14 @@ return require('packer').startup(function(use)
         }
     }
 
+    use { "kylechui/nvim-surround", config = function()
+        require('nvim-surround').setup {}
+    end }
+
+    use { "nvim-treesitter/nvim-treesitter-context", config = function()
+        require('treesitter-context').setup {}
+    end }
+
     local enabled, load = pcall(function()
         return require('main.yadeps')
     end)
