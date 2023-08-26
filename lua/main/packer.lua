@@ -84,7 +84,6 @@ return require('packer').startup(function(use)
     }
     use {
         "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
     }
     use {
         "gbprod/yanky.nvim"
@@ -117,10 +116,20 @@ return require('packer').startup(function(use)
     use { "lukas-reineke/indent-blankline.nvim", config = function()
         require('indent_blankline').setup {
             -- for example, context is off by default, use this to turn it on
-            show_current_context = true,
-            show_current_context_start = true,
+            show_current_context = false,
+            show_current_context_start = false,
         }
     end
+    }
+
+    use {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
+        config = function()
+            require("fidget").setup {
+                -- options
+            }
+        end,
     }
 
     local enabled, load = pcall(function()
