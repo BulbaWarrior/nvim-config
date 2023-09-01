@@ -33,6 +33,20 @@ return require('packer').startup(function(use)
     use 'theprimeagen/harpoon'
     use 'mbbill/undotree'
     use 'tpope/vim-fugitive'
+    -- for jupyter notebooks
+    use {
+        'goerz/jupytext.vim',
+        config = function()
+            vim.g.jupytext_fmt = 'py:percent'
+        end
+    }
+    use {
+        'GCBallesteros/vim-textobj-hydrogen',
+        requires = {
+            { 'kana/vim-textobj-user' }
+        }
+    }
+    -- jupyter shit end
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
