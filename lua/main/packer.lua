@@ -46,6 +46,17 @@ return require('packer').startup(function(use)
             { 'kana/vim-textobj-user' }
         }
     }
+    use {
+        "linux-cultist/venv-selector.nvim",
+        requires = {
+            "neovim/nvim-lspconfig",
+            "nvim-telescope/telescope.nvim",
+            "mfussenegger/nvim-dap-python"
+        },
+        config = function()
+            require('venv-selector').setup {}
+        end
+    }
     -- jupyter shit end
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -138,7 +149,7 @@ return require('packer').startup(function(use)
 
     use {
         'j-hui/fidget.nvim',
-        tag = 'legacy',
+        -- tag = 'legacy',
         config = function()
             require("fidget").setup {
                 -- options
