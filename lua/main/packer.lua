@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim', --tag = '0.1.1',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
@@ -57,7 +57,28 @@ return require('packer').startup(function(use)
             require('venv-selector').setup {}
         end
     }
+    -- use {
+    --     "kiyoon/jupynium.nvim",
+    --     run = "python -m pip --user .",
+    --     config = function()
+    --         require('jupynium').setup{
+    --             python_host = 'python3'
+    --         }
+    --     end
+    -- }
+    -- use { "kiyoon/jupynium.nvim", run = "conda run --no-capture-output -n jupynium pip install ." }
+    use { "rcarriga/nvim-notify" }   -- optional
+    use { "stevearc/dressing.nvim" } -- optional, UI for :JupyniumKernelSelect
     -- jupyter shit end
+    -- coq
+    use "whonore/Coqtail"
+    use {
+        "tomtomjhj/coq-lsp.nvim",
+        config = function()
+            require("coq-lsp").setup {}
+        end
+    }
+    --
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
@@ -139,10 +160,8 @@ return require('packer').startup(function(use)
         require('treesitter-context').setup {}
     end }
     use { "lukas-reineke/indent-blankline.nvim", config = function()
-        require('indent_blankline').setup {
-            -- for example, context is off by default, use this to turn it on
-            show_current_context = false,
-            show_current_context_start = false,
+        require('ibl').setup {
+            scope = { enabled = false },
         }
     end
     }
@@ -156,6 +175,11 @@ return require('packer').startup(function(use)
             }
         end,
     }
+
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 
     local enabled, load = pcall(function()
         return require('main.yadeps')
