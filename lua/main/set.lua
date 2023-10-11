@@ -28,7 +28,14 @@ vim.opt.updatetime = 50
 
 vim.cmd [[ autocmd BufNewFile,BufRead *.wgsl setfiletype wgsl ]]
 
-vim.o.conceallevel = 1
+
+vim.o.conceallevel = 1 -- what you see is not exactly what you write
+
+-- better search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+
 
 vim.g.neovide_input_macos_alt_is_meta = true
 vim.g.neovide_scale_factor = 0.85
