@@ -35,7 +35,13 @@ vim.o.conceallevel = 1 -- what you see is not exactly what you write
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+--russian input
+vim.opt.keymap = "russian-jcukenwin"
+vim.opt.iminsert = 0 -- so that default is still english
+
+
 
 
 vim.g.neovide_input_macos_alt_is_meta = true
 vim.g.neovide_scale_factor = 0.85
+vim.g.neovide_scroll_animation_length = 0.1
