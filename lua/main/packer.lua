@@ -25,9 +25,10 @@ return require('packer').startup(function(use)
         'folke/tokyonight.nvim',
         config = function()
             require('tokyonight').setup()
+            vim.api.nvim_set_hl(0, '@lsp.type.typeParameter.rust', { fg = '#f75385' })
         end
     }
-
+    use "sindrets/diffview.nvim"
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use 'nvim-treesitter/playground'
     use 'theprimeagen/harpoon'
