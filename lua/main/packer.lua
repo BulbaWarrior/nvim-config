@@ -183,6 +183,8 @@ return require('packer').startup(function(use)
         run = function() vim.fn["mkdp#util#install"]() end,
     })
 
+    use({"HakonHarnes/img-clip.nvim"})
+
     local enabled, load = pcall(function()
         return require('main.yadeps')
     end)
