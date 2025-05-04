@@ -183,7 +183,13 @@ return require('packer').startup(function(use)
         run = function() vim.fn["mkdp#util#install"]() end,
     })
 
-    use({"HakonHarnes/img-clip.nvim"})
+    use {"HakonHarnes/img-clip.nvim"}
+    use {'ShinKage/idris2-nvim',
+        requires = {'neovim/nvim-lspconfig', 'MunifTanjim/nui.nvim'},
+        config = function()
+            require('idris2').setup({})
+        end
+    }
 
     local enabled, load = pcall(function()
         return require('main.yadeps')
